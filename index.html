@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CPNU 2025 - YR Aprova | Matemática</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Cabeçalho Fixo */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ff6600;
+      color: white;
+      padding: 16px 20px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .header .logo {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      margin: 4px 0 0;
+      opacity: 0.95;
+    }
+
+    /* Conteúdo com margem para cabeçalho fixo */
+    .content {
+      margin-top: 130px;
+      padding-bottom: 60px;
+    }
+
+    /* Títulos */
+    h2 {
+      font-size: 1.4rem;
+      color: #1e3a8a;
+      margin: 60px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #3b82f6;
+      page-break-before: always;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: #1e40af;
+      margin: 30px 0 12px 0;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      color: #1e293b;
+      margin: 20px 0 10px 0;
+      font-weight: 600;
+    }
+
+    /* Texto comum */
+    p {
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    /* Sumário */
+    .toc {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .toc h2 {
+      margin: 0 0 16px 0;
+      border: none;
+      font-size: 1.3rem;
+      color: #1e3a8a;
+    }
+
+    .toc ul {
+      list-style: none;
+      font-size: 0.96rem;
+    }
+
+    .toc li {
+      margin-bottom: 8px;
+    }
+
+    .toc a {
+      color: #1e40af;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+      color: #0284c7;
+    }
+
+    .toc ul ul {
+      margin-left: 20px;
+      margin-top: 6px;
+    }
+
+    .toc .section {
+      font-weight: 600;
+      color: #1e3a8a;
+      margin: 10px 0 6px 0;
+    }
+
+    /* Introdução */
+    .introduction {
+      background: #dbeafe;
+      border-left: 4px solid #3b82f6;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 30px;
+      font-size: 0.98rem;
+      color: #1e3a8a;
+    }
+
+    /* Destaque */
+    .highlight {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.96rem;
+      color: #92400e;
+    }
+
+    /* Tabelas */
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: #ffffff;
+    }
+
+    th {
+      background-color: #3b82f6;
+      color: #ffffff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f1f5f9;
+    }
+
+    /* Listas */
+    ul, ol {
+      margin: 12px 0 12px 24px;
+      font-size: 0.98rem;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Questões */
+    .question {
+      margin: 30px 0;
+      padding: 16px;
+      background: #ffffff;
+      border: 1px solid #e0e7ff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .question h4 {
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      list-style: none;
+      margin: 10px 0 10px 0;
+    }
+
+    .options li {
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 0.96rem;
+    }
+
+    .options li::before {
+      content: attr(data-letter ")";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 600;
+      color: #f59e0b;
+    }
+
+    .answer {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #10b981;
+      font-size: 0.96rem;
+    }
+
+    /* Infográficos */
+    .infographic {
+      background: #f1f5f9;
+      border: 1px dashed #64748b;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 8px;
+      text-align: center;
+      font-style: italic;
+      color: #475569;
+    }
+
+    /* Simulado Link */
+    .simulado-box {
+      background: #ecfdf5;
+      border: 1px solid #059669;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .simulado-box h4 {
+      color: #059669;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .simulado-box a {
+      color: #059669;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .simulado-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* Rodapé */
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      page-break-before: avoid;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+        font-size: 0.95rem;
+      }
+      h2 { font-size: 1.3rem; }
+      h3 { font-size: 1.1rem; }
+      .introduction, .highlight {
+        font-size: 0.92rem;
+      }
+      .toc {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align: center; margin-top: 100px;">
+  <img src="capa.png" alt="Capa Apostila Bloco 09" style="max-width:100%; height:auto;">
+</div>
+  <!-- Cabeçalho Fixo -->
+  <div class="header">
+    <h1>CPNU 2025 - <span class="logo">YR Aprova</span></h1>
+    <p>Matemática – Nível Médio / Banca FGV</p>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="content">
+
+    <!-- Sumário Interativo -->
+    <div class="toc">
+      <h2>📋 Sumário Interativo</h2>
+      <ul>
+        <li class="section">1. Conjuntos Numéricos</li>
+        <ul>
+          <li><a href="#conjuntos">1.1. Naturais, Inteiros, Racionais, Reais</a></li>
+          <li><a href="#multiplos">1.2. Múltiplos, Divisores, Primos</a></li>
+          <li><a href="#potencias">1.3. Potências e Raízes</a></li>
+          <li><a href="#questao1">Questão 1 – Conjuntos</a></li>
+        </ul>
+
+        <li class="section">2. Sistemas de Unidades</li>
+        <ul>
+          <li><a href="#unidades">2.1. Comprimento, Área, Volume</a></li>
+          <li><a href="#massa-tempo">2.2. Massa e Tempo</a></li>
+          <li><a href="#questao2">Questão 2 – Unidades</a></li>
+        </ul>
+
+        <li class="section">3. Razão, Proporção e Porcentagem</li>
+        <ul>
+          <li><a href="#razao-proporcao">3.1. Regra de Três Simples e Composta</a></li>
+          <li><a href="#porcentagem">3.2. Porcentagem, Juros Simples e Compostos</a></li>
+          <li><a href="#questao3">Questão 3 – Porcentagem</a></li>
+        </ul>
+
+        <li class="section">4. Probabilidade</li>
+        <ul>
+          <li><a href="#probabilidade">4.1. Conceitos e Cálculos</a></li>
+          <li><a href="#questao4">Questão 4 – Probabilidade</a></li>
+        </ul>
+
+        <li class="section">5. Estatística Básica</li>
+        <ul>
+          <li><a href="#tabelas-graficos">5.1. Leitura de Tabelas e Gráficos</a></li>
+          <li><a href="#medidas">5.2. Média, Mediana, Moda</a></li>
+          <li><a href="#questao5">Questão 5 – Estatística</a></li>
+        </ul>
+
+        <li class="section">✅ Simulado Final</li>
+        <ul>
+          <li><a href="#simulado">Questões 1 a 3 – Revisão Geral</a></li>
+        </ul>
+      </ul>
+    </div>
+
+    <!-- Introdução -->
+    <div class="introduction">
+      Bem-vindo(a) ao módulo <strong>Matemática</strong> da apostila CPNU 2025! Este conteúdo foi desenvolvido para oferecer uma preparação completa, clara e prática para concursos da banca FGV. Aqui, você encontrará teoria objetiva, exemplos resolvidos, estratégias de cálculo e questões comentadas que simulam o estilo da prova. Domine os conceitos essenciais de conjuntos, grandezas, porcentagem, probabilidade e estatística com confiança e precisão.
+    </div>
+
+<!-- Capítulo 1 -->
+<section id="conjuntos-numericos">
+  <h2>1. Conjuntos Numéricos</h2>
+  <p>Os conjuntos numéricos são a base da Matemática. Entendê-los é fundamental para resolver problemas de aritmética, álgebra e raciocínio lógico.</p>
+
+  <h3 id="principais-conjuntos">1.1. Principais Conjuntos</h3>
+  <div class="table-container">
+    <table aria-label="Tabela dos principais conjuntos numéricos">
+      <thead>
+        <tr>
+          <th scope="col">Conjunto</th>
+          <th scope="col">Símbolo</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Exemplos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Naturais</td>
+          <td>ℕ</td>
+          <td>Números positivos inteiros (incluindo zero em algumas definições)</td>
+          <td>1, 2, 3, 100</td>
+        </tr>
+        <tr>
+          <td>Inteiros</td>
+          <td>ℤ</td>
+          <td>Naturais, seus opostos e zero</td>
+          <td>-3, 0, 5, -10</td>
+        </tr>
+        <tr>
+          <td>Racionais</td>
+          <td>ℚ</td>
+          <td>Frações e decimais exatos ou periódicos</td>
+          <td>1/2, 0,333..., -4,5</td>
+        </tr>
+        <tr>
+          <td>Reais</td>
+          <td>ℝ</td>
+          <td>Todos os racionais e irracionais</td>
+          <td>√2, π, 3,1415...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="multiplos-divisores">1.2. Múltiplos, Divisores e Números Primos</h3>
+  <ul>
+    <li><strong>Múltiplos:</strong> Resultado da multiplicação de um número por um inteiro. Ex: Múltiplos de 3: 3, 6, 9, 12…</li>
+    <li><strong>Divisores:</strong> Números que dividem outro sem deixar resto. Ex: Divisores de 12: 1, 2, 3, 4, 6, 12.</li>
+    <li><strong>Números primos:</strong> São divisíveis apenas por 1 e por eles mesmos. Ex: 2, 3, 5, 7, 11, 13.</li>
+  </ul>
+
+  <h3 id="potencias-raizes">1.3. Potências e Raízes</h3>
+  <p><strong>Potência:</strong> <span class="math">a^n = a × a × ⋯ × a</span> (n vezes)</p>
+  <p><strong>Propriedades:</strong></p>
+  <ul>
+    <li><span class="math">a^m ⋅ a^n = a^{m+n}</span></li>
+    <li><span class="math">(a^m)^n = a^{m⋅n}</span></li>
+    <li><span class="math">a^{-n} = 1/a^n</span></li>
+  </ul>
+  <p><strong>Raiz:</strong> <span class="math">√[n]{a} = b</span> se <span class="math">b^n = a</span></p>
+  <p>Ex: <span class="math">√16 = 4</span>, pois <span class="math">4² = 16</span></p>
+
+  <div class="question" id="questao1">
+    <h4>Questão 1 (FGV - Adaptada)</h4>
+    <p>Qual dos números abaixo é primo?</p>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">15</li>
+      <li role="radio" aria-checked="false" data-letter="b">21</li>
+      <li role="radio" aria-checked="false" data-letter="c">27</li>
+      <li role="radio" aria-checked="false" data-letter="d">31</li>
+      <li role="radio" aria-checked="false" data-letter="e">33</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> D (31 é primo)</p>
+  </div>
+</section>
+
+<!-- Capítulo 2 -->
+<section id="sistemas-unidades">
+  <h2>2. Sistemas de Unidades de Medida</h2>
+  <p>O Sistema Internacional de Unidades (SI) é fundamental para resolver problemas de grandezas e conversões.</p>
+
+  <h3 id="unidades-medida">2.1. Comprimento, Área e Volume</h3>
+  <div class="table-container">
+    <table aria-label="Tabela de unidades de medida: comprimento, área e volume">
+      <thead>
+        <tr>
+          <th scope="col">Grandeza</th>
+          <th scope="col">Unidade</th>
+          <th scope="col">Conversão</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Comprimento</td>
+          <td>m (metro)</td>
+          <td>1 km = 1000 m</td>
+        </tr>
+        <tr>
+          <td>Área</td>
+          <td>m² (metro quadrado)</td>
+          <td>1 km² = 1.000.000 m²</td>
+        </tr>
+        <tr>
+          <td>Volume</td>
+          <td>m³ (metro cúbico)</td>
+          <td>1 m³ = 1000 L</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="massa-tempo">2.2. Massa e Tempo</h3>
+  <ul>
+    <li><strong>Massa:</strong> 1 kg = 1000 g; 1 ton = 1000 kg</li>
+    <li><strong>Tempo:</strong> 1 h = 60 min = 3600 s</li>
+  </ul>
+
+  <div class="question" id="questao2">
+    <h4>Questão 2 (FGV)</h4>
+    <p>Uma caixa d'água tem 2,5 m³ de capacidade. Quantos litros ela comporta?</p>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">25</li>
+      <li role="radio" aria-checked="false" data-letter="b">250</li>
+      <li role="radio" aria-checked="false" data-letter="c">2.500</li>
+      <li role="radio" aria-checked="false" data-letter="d">25.000</li>
+      <li role="radio" aria-checked="false" data-letter="e">250.000</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> C (2,5 × 1000 = 2.500 L)</p>
+  </div>
+</section>
+
+<!-- Capítulo 3 -->
+<section id="razao-proporcao">
+  <h2>3. Razão, Proporção e Porcentagem</h2>
+  <p>Razão e proporção são essenciais para resolver problemas de regra de três e porcentagem.</p>
+
+  <h3 id="regra-tres">3.1. Regra de Três Simples e Composta</h3>
+  <p><strong>Simples:</strong> Duas grandezas diretamente ou inversamente proporcionais.</p>
+  <p><strong>Composta:</strong> Três ou mais grandezas interligadas.</p>
+
+  <h3 id="porcentagem-juros">3.2. Porcentagem e Juros</h3>
+  <p><strong>Porcentagem:</strong> <span class="math">x\% = x/100</span></p>
+  <p><strong>Juros Simples:</strong> <span class="math">J = C ⋅ i ⋅ t</span></p>
+  <p><strong>Juros Compostos:</strong> <span class="math">M = C ⋅ (1 + i)^t</span></p>
+
+  <div class="question" id="questao3">
+    <h4>Questão 3 (FGV)</h4>
+    <p>Um produto de R$ 120,00 teve um desconto de 25%. Qual é o novo preço?</p>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">R$ 80,00</li>
+      <li role="radio" aria-checked="false" data-letter="b">R$ 90,00</li>
+      <li role="radio" aria-checked="false" data-letter="c">R$ 100,00</li>
+      <li role="radio" aria-checked="false" data-letter="d">R$ 110,00</li>
+      <li role="radio" aria-checked="false" data-letter="e">R$ 115,00</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> B (25% de 120 = 30 → 120 – 30 = 90)</p>
+  </div>
+</section>
+
+<!-- Capítulo 4 -->
+<section id="probabilidade">
+  <h2>4. Probabilidade</h2>
+  <p>A probabilidade mede a chance de um evento ocorrer.</p>
+  <p><span class="math">P(A) = casos_favoráveis / casos_possíveis</span></p>
+
+  <h3 id="exemplos-probabilidade">4.1. Exemplos</h3>
+  <p>Lançamento de um dado: Probabilidade de sair número par = <span class="math">3/6 = 50%</span></p>
+  <p>Sorteio de uma carta: Probabilidade de ser um ás = <span class="math">4/52 ≈ 7,7%</span></p>
+
+  <div class="question" id="questao4">
+    <h4>Questão 4 (FGV)</h4>
+    <p>Qual a probabilidade de sortear um número primo ao lançar um dado comum?</p>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">1/6</li>
+      <li role="radio" aria-checked="false" data-letter="b">1/3</li>
+      <li role="radio" aria-checked="false" data-letter="c">1/2</li>
+      <li role="radio" aria-checked="false" data-letter="d">2/3</li>
+      <li role="radio" aria-checked="false" data-letter="e">5/6</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> C (números primos no dado: 2, 3, 5 → 3/6 = 1/2)</p>
+  </div>
+</section>
+
+<!-- Capítulo 5 -->
+<section id="estatistica">
+  <h2>5. Estatística Básica</h2>
+  <p>Interpretar dados é uma habilidade cobrada com frequência em concursos.</p>
+
+  <h3 id="tabelas-graficos">5.1. Tabelas e Gráficos</h3>
+  <p>Gráficos de barras, setores e linhas são comuns. Leia títulos, eixos e legendas com atenção.</p>
+
+  <h3 id="medidas-tendencia">5.2. Medidas de Tendência Central</h3>
+  <ul>
+    <li><strong>Média:</strong> Soma dos valores / quantidade</li>
+    <li><strong>Mediana:</strong> Valor central em uma lista ordenada</li>
+    <li><strong>Moda:</strong> Valor que mais aparece</li>
+  </ul>
+
+  <div class="table-container">
+    <table aria-label="Distribuição de notas e número de alunos">
+      <thead>
+        <tr>
+          <th scope="col">Nota</th>
+          <th scope="col">2</th>
+          <th scope="col">5</th>
+          <th scope="col">6</th>
+          <th scope="col">7</th>
+          <th scope="col">8</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alunos</td>
+          <td>2</td>
+          <td>3</td>
+          <td>5</td>
+          <td>4</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Média = <span class="math">(2×2 + 5×3 + 6×5 + 7×4 + 8×1) / 15 = 89 / 15 ≈ 5,93</span></p>
+
+  <div class="question" id="questao5">
+    <h4>Questão 5 (FGV)</h4>
+    <p>Qual é a mediana das idades: 18, 20, 22, 24, 26?</p>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">18</li>
+      <li role="radio" aria-checked="false" data-letter="b">20</li>
+      <li role="radio" aria-checked="false" data-letter="c">22</li>
+      <li role="radio" aria-checked="false" data-letter="d">24</li>
+      <li role="radio" aria-checked="false" data-letter="e">26</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> C (lista ordenada: 5 elementos → mediana é o 3º: 22)</p>
+  </div>
+</section>
+
+<!-- Simulado Final -->
+<section id="simulado">
+  <h2>✅ Simulado Final – Revisão Geral</h2>
+  <p>Questões no estilo FGV para revisão de todo o conteúdo.</p>
+
+  <div class="question">
+    <h4>1. Qual é o valor de <span class="math">√144</span>?</h4>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">10</li>
+      <li role="radio" aria-checked="false" data-letter="b">11</li>
+      <li role="radio" aria-checked="false" data-letter="c">12</li>
+      <li role="radio" aria-checked="false" data-letter="d">13</li>
+      <li role="radio" aria-checked="false" data-letter="e">14</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> C (pois 12² = 144)</p>
+  </div>
+
+  <div class="question">
+    <h4>2. Um carro percorre 120 km em 2 horas. Qual é sua velocidade média?</h4>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">40 km/h</li>
+      <li role="radio" aria-checked="false" data-letter="b">50 km/h</li>
+      <li role="radio" aria-checked="false" data-letter="c">60 km/h</li>
+      <li role="radio" aria-checked="false" data-letter="d">70 km/h</li>
+      <li role="radio" aria-checked="false" data-letter="e">80 km/h</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> C (120 km / 2 h = 60 km/h)</p>
+  </div>
+
+  <div class="question">
+    <h4>3. Qual é a moda do conjunto: 3, 5, 5, 7, 7, 7, 9?</h4>
+    <ul class="options" role="radiogroup" aria-label="Escolha uma opção">
+      <li role="radio" aria-checked="false" data-letter="a">3</li>
+      <li role="radio" aria-checked="false" data-letter="b">5</li>
+      <li role="radio" aria-checked="false" data-letter="c">7</li>
+      <li role="radio" aria-checked="false" data-letter="d">9</li>
+      <li role="radio" aria-checked="false" data-letter="e">nenhuma</li>
+    </ul>
+    <p class="answer"><strong>Gabarito:</strong> C (o 7 aparece 3 vezes)</p>
+  </div>
+</section>
+
+    <!-- Link para Simulado -->
+<div class="simulado-box" style="border: 2px solid #ff6600; padding: 20px; border-radius: 8px; background: #fff8f2; margin: 30px 0;">
+  <h4 style="margin-top:0; font-size: 20px;">🚀 Acesse o Simulado Completo Online!</h4>
+  <p>Teste seus conhecimentos com o simulado oficial da <strong>YR Aprova</strong>, com 50 questões no estilo da banca FGV.</p>
+  <p>
+    <a href="https://simpsonpi.github.io/simulado-matematica/"_blank" style="color:#fff; background:#ff6600; padding:10px 16px; text-decoration:none; border-radius:6px; font-weight:bold;">
+      Clique aqui para acessar o simulado →
+    </a>
+  </p>
+</div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+      Apostila CPNU 2025 – YR Aprova | Matemática – Nível Médio<br>
+      © 2025 YR Aprova. Todos os direitos reservados.<br>
+      Conteúdo atualizado para concursos da banca FGV.
+    </div>
+
+  </div>
+</body>
+</html>
